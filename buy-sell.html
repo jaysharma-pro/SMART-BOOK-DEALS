@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy & Sell Books - Digi SMART-BookDeals</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #222, #444);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    nav .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #f39c12;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+    }
+
+    nav .logo svg {
+      width: 50px;
+      height: 50px;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #f39c12;
+    }
+
+    .hero {
+      height: 70vh;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      margin-top: 70px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    section {
+      padding: 80px 50px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2.3rem;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    section p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 10px auto 40px;
+      color: #555;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .option-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .option-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .option-card .icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      display: inline-block;
+      color: #f39c12;
+    }
+
+    .option-card h3 {
+      margin-bottom: 15px;
+      color: #f39c12;
+    }
+
+    .option-card p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .option-card a {
+      display: inline-block;
+      background: #f39c12;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .option-card a:hover {
+      background: #d35400;
+    }
+
+    /* ---------- Forms ---------- */
+    .form-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .form-container h3 {
+      color: #f39c12;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    .form-group input, 
+    .form-group textarea, 
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      background: #f39c12;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background: #d35400;
+    }
+
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <!-- Digi Smart Book Deals Logo -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+        <rect x="8" y="12" width="48" height="40" rx="4" ry="4" fill="#f39c12"/>
+        <path d="M8 12 L32 32 L56 12" stroke="#fff" stroke-width="2" fill="none"/>
+        <path d="M32 32 L32 52" stroke="#fff" stroke-width="2"/>
+        <path d="M32 12 C36 8, 44 8, 48 12" stroke="#fff" stroke-width="2" fill="none"/>
+        <path d="M32 16 C36 12, 44 12, 48 16" stroke="#fff" stroke-width="2" fill="none"/>
+      </svg>
+      Digi SMART-BookDeals
+    </div>
+    <ul>
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#how">How It Works</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Buy & Sell Books</h1>
+    <p>Get access to affordable books or earn by selling your old ones. A trusted marketplace for students, professionals, and book lovers.</p>
+  </section>
+
+  <section>
+    <h2>Choose Your Option</h2>
+    <div class="options">
+      <div class="option-card">
+        <span class="icon">🛒</span>
+        <h3>Buy Books</h3>
+        <p>Browse thousands of books from different genres, authors, and subjects. Affordable and easy to access.</p>
+        <a href="#buy-form">Start Buying</a>
+      </div>
+
+      <div class="option-card">
+        <span class="icon">📦</span>
+        <h3>Sell Books</h3>
+        <p>List your books quickly with details and set your price. Reach genuine buyers easily.</p>
+        <a href="#sell-form">Start Selling</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buy Form -->
+  <section id="buy-form">
+    <div class="form-container">
+      <h3>Buy Books</h3>
+      <form>
+        <div class="form-group">
+          <label for="book-search">Book Title / Author</label>
+          <input type="text" id="book-search" placeholder="Enter book name or author">
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category">
+            <option>-- Select Category --</option>
+            <option>Science</option>
+            <option>Technology</option>
+            <option>Literature</option>
+            <option>Commerce</option>
+            <option>History</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit">Search Books</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Sell Form -->
+  <section id="sell-form">
+    <div class="form-container">
+      <h3>Sell Your Book</h3>
+      <form>
+        <div class="form-group">
+          <label for="title">Book Title</label>
+          <input type="text" id="title" placeholder="Enter book title">
+        </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" id="author" placeholder="Enter author name">
+        </div>
+        <div class="form-group">
+          <label for="price">Price (INR)</label>
+          <input type="number" id="price" placeholder="Enter price">
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" placeholder="Brief description about the book"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="upload">Upload Book Image</label>
+          <input type="file" id="upload">
+        </div>
+        <button type="submit" class="btn-submit">Submit Listing</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Digi SMART-BookDeals. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
