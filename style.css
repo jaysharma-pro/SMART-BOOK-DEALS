@@ -64,6 +64,83 @@
         color: #f39c12;
       }
 
+
+      /* about us section */
+      .about1{
+        display: flex;
+        margin-top: 30px;
+        align-items: center;
+       
+
+      }
+      .about1 img{
+        border-radius: 20px;
+      }
+      .about2 img{
+        border-radius: 20px;
+         height: 40vh;
+      }
+      .about3 img{
+        border-radius: 20px;
+         height: 40vh;
+      }
+      .about2{
+        display: flex;
+        margin-top: 40px;
+       
+        align-items: center;
+
+        
+
+      }
+      .about3{
+        display: flex;
+        margin-top: 40px;
+        align-items: center;
+
+        
+      }
+
+      .dis{
+        margin-left: 60px;
+      }
+      /* banner */
+
+      .poster{
+  background-image: url(./flat-lay-bookmark-books-assortment_23-2149894329.jpg);
+  background-size:cover;
+  height: 50vh;
+}
+
+.post{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-right: 3%;
+  align-items: center;
+}
+.post h3{
+  font-size: 23px;
+  font-weight: 800;
+
+   /* color: #f39c12 */
+}
+.post h4{
+  font-size: 18px;
+  font-weight: 700;
+ }
+  .post .btn{ margin-top: 15px;
+    padding: 8px 15px;
+    background: #f39c12;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    width: 130px;
+    
+    transition: background 0.3s;
+  }
+/* hero section */
       .hero {
         height: 100vh;
         background: linear-gradient(to right, #ffecd2, #fcb69f);

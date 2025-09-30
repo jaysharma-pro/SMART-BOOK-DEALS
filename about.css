@@ -89,7 +89,7 @@ nav ul li a:hover {
 
 /* Sections */
 section {
-  padding: 80px 50px;
+  padding: 30px 50px;
   text-align: center;
 }
 
@@ -134,4 +134,14 @@ footer {
   text-align: center;
   padding: 20px;
   margin-top: 50px;
+}
+
+.one{
+  margin-top: 10px;
+}
+.two{
+  margin-top: 10px;
+}
+.one{
+  margin-top: 10px;
 }
